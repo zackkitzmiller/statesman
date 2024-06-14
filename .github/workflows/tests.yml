@@ -61,6 +61,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: "${{ matrix.ruby-version }}"
+          rubygems: "${{ matrix.ruby-version == '3.0' && '3.3.22' || 'default' }}"
       - name: Run specs
         run: |
           bundle exec rspec --profile --format progress --format RSpec::Github::Formatter
@@ -107,6 +108,7 @@ jobs:
         with:
           bundler-cache: true
           ruby-version: "${{ matrix.ruby-version }}"
+          rubygems: "${{ matrix.ruby-version == '3.0' && '3.3.22' || 'default' }}"
       - name: Run specs
         run: |
           bundle exec rspec --profile --format progress --format RSpec::Github::Formatter
